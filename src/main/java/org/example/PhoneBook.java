@@ -1,11 +1,6 @@
 package org.example;
 
-import javax.swing.text.html.parser.Entity;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.function.Function;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class PhoneBook {
@@ -32,4 +27,9 @@ public class PhoneBook {
         }
         return name;
     }
+
+    public String findByName(String name) {
+        return phoneBook.get(name);
+    }
+
 }

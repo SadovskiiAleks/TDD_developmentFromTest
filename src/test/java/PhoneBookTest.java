@@ -14,8 +14,8 @@ public class PhoneBookTest {
         String numberTwo = "89994017090";
         PhoneBook phoneBook = new PhoneBook();
         // when:
-        int addNumberOne = phoneBook.add(name,number);
-        int addNumberTwo = phoneBook.add(nameTwo,numberTwo);
+        int addNumberOne = phoneBook.add(name, number);
+        int addNumberTwo = phoneBook.add(nameTwo, numberTwo);
 
         // then:
         Assertions.assertEquals(1, addNumberTwo - addNumberOne);
@@ -30,43 +30,41 @@ public class PhoneBookTest {
         String numberTwo = "89994022917";
         PhoneBook phoneBook = new PhoneBook();
         // when:
-        int addNumberOne = phoneBook.add(name,number);
-        int addNumberTwo = phoneBook.add(nameTwo,numberTwo);
+        int addNumberOne = phoneBook.add(name, number);
+        int addNumberTwo = phoneBook.add(nameTwo, numberTwo);
 
         // then:
         Assertions.assertEquals(0, addNumberTwo - addNumberOne);
     }
 
     @Test
-    public void testFindByNumber(){
+    public void testFindByNumber() {
         // given:
         PhoneBook phoneBook = new PhoneBook();
         // when:
-        phoneBook.add("Вова","89994017090");
-        phoneBook.add("Олег","89994017090");
-        phoneBook.add("Вова","89003037090");
-        phoneBook.add("Вова","89003012090");
+        phoneBook.add("Вова", "89994017090");
+        phoneBook.add("Олег", "89994017090");
+        phoneBook.add("Вова", "89003037090");
+        phoneBook.add("Вова", "89003012090");
         String name = phoneBook.findByNumber("89994017090");
 
         // then:
         Assertions.assertEquals("Вова", name);
-
     }
 
     @Test
-    public void testFindByName(){
+    public void testFindByName() {
         // given:
         PhoneBook phoneBook = new PhoneBook();
         // when:
-        phoneBook.add("Вова","89994017090");
-        phoneBook.add("Олег","89994017090");
-        phoneBook.add("Юля","89003037090");
-        phoneBook.add("Вова","89003012090");
+        phoneBook.add("Вова", "89994017090");
+        phoneBook.add("Олег", "89994017090");
+        phoneBook.add("Юля", "89003037090");
+        phoneBook.add("Вова", "89003012090");
         String name = phoneBook.findByName("Вова");
 
         // then:
         Assertions.assertEquals("89994017090", name);
-
     }
 
 
