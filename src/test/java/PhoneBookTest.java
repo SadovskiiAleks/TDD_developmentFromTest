@@ -53,4 +53,21 @@ public class PhoneBookTest {
 
     }
 
+    @Test
+    public void testFindByName(){
+        // given:
+        PhoneBook phoneBook = new PhoneBook();
+        // when:
+        phoneBook.add("Вова","89994017090");
+        phoneBook.add("Олег","89994017090");
+        phoneBook.add("Юля","89003037090");
+        phoneBook.add("Вова","89003012090");
+        String name = phoneBook.findByName("Вова");
+
+        // then:
+        Assertions.assertEquals("89994017090", name);
+
+    }
+
+
 }
