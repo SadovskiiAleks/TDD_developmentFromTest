@@ -34,6 +34,11 @@ public class PhoneBook {
     }
 
     public String PrintAllNames() {
-        return null;
+        StringBuilder stringBuilder = new StringBuilder();
+        phoneBook.entrySet().stream()
+                .sorted(Map.Entry.comparingByKey())
+                .forEach(x -> stringBuilder.append(x.getKey() + ", "));
+        stringBuilder.setLength(stringBuilder.length()-2);
+        return stringBuilder.toString();
     }
 }
