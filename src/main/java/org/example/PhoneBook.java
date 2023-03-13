@@ -6,10 +6,11 @@ import java.util.stream.Collectors;
 public class PhoneBook {
     private int quantityOfContacts = 0;
 
-    private HashMap<String,String> phoneBook = new HashMap<>();
-    public int add(String name, String number){
+    private HashMap<String, String> phoneBook = new HashMap<>();
+
+    public int add(String name, String number) {
         if (!phoneBook.containsKey(name)) {
-            phoneBook.put(name,number);
+            phoneBook.put(name, number);
             return ++quantityOfContacts;
         } else {
             return quantityOfContacts;
@@ -21,7 +22,7 @@ public class PhoneBook {
                 .filter(x -> x.getValue() == number)
                 .collect(Collectors.toMap(x -> x.getKey(), x -> x.getValue()));
         String name = null;
-        for(Map.Entry<String, String> item : contactWithNumber.entrySet()){
+        for (Map.Entry<String, String> item : contactWithNumber.entrySet()) {
             name = item.getKey();
             break;
         }
@@ -32,4 +33,7 @@ public class PhoneBook {
         return phoneBook.get(name);
     }
 
+    public String PrintAllNames() {
+        return null;
+    }
 }

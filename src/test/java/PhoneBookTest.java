@@ -29,6 +29,7 @@ public class PhoneBookTest {
         String nameTwo = "Вова";
         String numberTwo = "89994022917";
         PhoneBook phoneBook = new PhoneBook();
+
         // when:
         int addNumberOne = phoneBook.add(name, number);
         int addNumberTwo = phoneBook.add(nameTwo, numberTwo);
@@ -41,6 +42,7 @@ public class PhoneBookTest {
     public void testFindByNumber() {
         // given:
         PhoneBook phoneBook = new PhoneBook();
+
         // when:
         phoneBook.add("Вова", "89994017090");
         phoneBook.add("Олег", "89994017090");
@@ -56,6 +58,7 @@ public class PhoneBookTest {
     public void testFindByName() {
         // given:
         PhoneBook phoneBook = new PhoneBook();
+
         // when:
         phoneBook.add("Вова", "89994017090");
         phoneBook.add("Олег", "89994017090");
@@ -67,5 +70,20 @@ public class PhoneBookTest {
         Assertions.assertEquals("89994017090", name);
     }
 
+    @Test
+    public void testPrintAllNames() {
+        // given:
+        PhoneBook phoneBook = new PhoneBook();
+
+        // when:
+        phoneBook.add("Вова", "89994017090");
+        phoneBook.add("Олег", "89994017090");
+        phoneBook.add("Юля", "89003037090");
+        phoneBook.add("Аня", "89003012090");
+        String allNames = phoneBook.PrintAllNames();
+
+        // then:
+        Assertions.assertEquals("Аня, Вова, Олег, Юля", allNames);
+    }
 
 }
