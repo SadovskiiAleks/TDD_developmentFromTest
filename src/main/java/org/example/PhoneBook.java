@@ -1,7 +1,12 @@
 package org.example;
 
+import javax.swing.text.html.parser.Entity;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class PhoneBook {
     private int quantityOfContacts = 0;
@@ -14,5 +19,17 @@ public class PhoneBook {
         } else {
             return quantityOfContacts;
         }
+    }
+
+    public String findByNumber(String number) {
+        Map<String, String> contactWithNumber = phoneBook.entrySet().stream()
+                .filter(x -> x.getValue() == number)
+                .collect(Collectors.toMap(x -> x.getKey(), x -> x.getValue()));
+        String name = null;
+        for(Map.Entry<String, String> item : contactWithNumber.entrySet()){
+            name = item.getKey();
+            break;
+        }
+        return name;
     }
 }
